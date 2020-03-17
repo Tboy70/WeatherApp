@@ -4,5 +4,5 @@ data class WeatherResultEnvelope(
     var latitude: Float? = null,
     var longitude: Float? = null,
     var currentWeather: CurrentWeather? = null,
-    var forecastWeather: List<ForecastWeather>? = emptyList()
+    var forecastWeather: ForecastWeather? = null
 )

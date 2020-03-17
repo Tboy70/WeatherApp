@@ -7,26 +7,21 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ForecastWeatherEntityDataMapper @Inject constructor() {
+class ForecastWeatherEntityDataMapper @Inject constructor(
+    private val dailyWeatherEntityDataMapper: DailyWeatherEntityDataMapper
+) {
 
     @Throws(DataMappingException::class)
     fun transformFromEntity(forecastWeatherEntity: ForecastWeatherEntity): ForecastWeather {
         try {
             return ForecastWeather(
-                time = forecastWeatherEntity.time,
-                summary = forecastWeatherEntity.summary,
-                icon = forecastWeatherEntity.icon,
-                precipIntensity = forecastWeatherEntity.precipIntensity,
-                precipProbability = forecastWeatherEntity.precipProbability,
-                precipType = forecastWeatherEntity.precipType,
-                humidity = forecastWeatherEntity.humidity,
-                pressure = forecastWeatherEntity.pressure,
-                windSpeed = forecastWeatherEntity.windSpeed,
-                cloudCover = forecastWeatherEntity.cloudCover,
-                temperatureMin = forecastWeatherEntity.temperatureMin,
-                temperatureMax = forecastWeatherEntity.temperatureMax,
-                apparentTemperatureMin = forecastWeatherEntity.apparentTemperatureMin,
-                apparentTemperatureMax = forecastWeatherEntity.apparentTemperatureMax
+                generalSummary = forecastWeatherEntity.generalSummary,
+                generalIcon = forecastWeatherEntity.generalIcon,
+                data = forecastWeatherEntity.data?.let {
+                    dailyWeatherEntityDataMapper.transformFromEntity(
+                        it
+                    )
+                }
             )
         } catch (e: Exception) {
             throw DataMappingException()
@@ -46,20 +41,13 @@ class ForecastWeatherEntityDataMapper @Inject constructor() {
     fun transformToEntity(forecastWeather: ForecastWeather): ForecastWeatherEntity {
         try {
             return ForecastWeatherEntity(
-                time = forecastWeather.time,
-                summary = forecastWeather.summary,
-                icon = forecastWeather.icon,
-                precipIntensity = forecastWeather.precipIntensity,
-                precipProbability = forecastWeather.precipProbability,
-                precipType = forecastWeather.precipType,
-                humidity = forecastWeather.humidity,
-                pressure = forecastWeather.pressure,
-                windSpeed = forecastWeather.windSpeed,
-                cloudCover = forecastWeather.cloudCover,
-                temperatureMin = forecastWeather.temperatureMin,
-                temperatureMax = forecastWeather.temperatureMax,
-                apparentTemperatureMin = forecastWeather.apparentTemperatureMin,
-                apparentTemperatureMax = forecastWeather.apparentTemperatureMax
+                generalSummary = forecastWeather.generalSummary,
+                generalIcon = forecastWeather.generalIcon,
+                data = forecastWeather.data?.let {
+                    dailyWeatherEntityDataMapper.transformToEntity(
+                        it
+                    )
+                }
             )
         } catch (e: Exception) {
             throw DataMappingException()

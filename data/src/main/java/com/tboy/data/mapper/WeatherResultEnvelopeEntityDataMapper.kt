@@ -27,7 +27,8 @@ class WeatherResultEnvelopeEntityDataMapper @Inject constructor(
                     forecastWeatherEntityDataMapper.transformToEntity(
                         it
                     )
-                } ?: emptyList()
+                }
+
             )
         } catch (e: Exception) {
             throw DataMappingException()
@@ -58,7 +59,7 @@ class WeatherResultEnvelopeEntityDataMapper @Inject constructor(
                     forecastWeatherEntityDataMapper.transformFromEntity(
                         it
                     )
-                } ?: emptyList()
+                }
             )
         } catch (e: Exception) {
             throw DataMappingException()

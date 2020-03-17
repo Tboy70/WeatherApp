@@ -27,7 +27,7 @@ class WeatherResultEnvelopeRemoteEntityDataMapper @Inject constructor(
                     forecastWeatherRemoteEntityDataMapper.transformToEntity(
                         it
                     )
-                } ?: emptyList()
+                }
             )
         } catch (e: Exception) {
             throw DataMappingException()
@@ -54,11 +54,12 @@ class WeatherResultEnvelopeRemoteEntityDataMapper @Inject constructor(
                         it
                     )
                 },
-                forecastWeather = weatherResultEnvelopeEntity.forecastWeather?.let {
+                forecastWeather =
+                weatherResultEnvelopeEntity.forecastWeather?.let {
                     forecastWeatherRemoteEntityDataMapper.transformFromEntity(
                         it
                     )
-                } ?: emptyList()
+                }
             )
         } catch (e: Exception) {
             throw DataMappingException()
