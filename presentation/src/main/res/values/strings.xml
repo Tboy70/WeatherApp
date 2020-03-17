@@ -1,5 +1,20 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Weather App</string>
     <string name="nav_main_weather">Main Weather</string>
+
+    <!-- MAIN PAGE -->
     <string name="intro_text">Veuillez rechercher un endroit \n via le bouton ci-dessous</string>
+
+    <!-- DIALOG -->
+    <string name="find_a_place">Rechercher un lieu</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="select_location">OU sélectionnez directement</string>
+
+    <!-- ERRORS -->
+    <string name="snackbar_error_unknown_error">Erreur inconnue</string>
+    <string name="error_connection_problem">Problème de connexion internet</string>
+    <string name="error_server_connection_problem">Problème de connexion au serveur</string>
+
+
 </resources>

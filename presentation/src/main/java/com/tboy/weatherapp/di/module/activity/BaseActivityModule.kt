@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.tboy.weatherapp.activity.BaseActivity
 import com.tboy.weatherapp.component.DialogComponentImpl
+import com.tboy.weatherapp.component.ErrorRendererComponentImpl
 import com.tboy.weatherapp.component.listener.DialogComponent
+import com.tboy.weatherapp.component.listener.ErrorRendererComponent
 import com.tboy.weatherapp.di.annotation.PerActivity
 import dagger.Module
 import dagger.Provides
@@ -25,5 +27,10 @@ class BaseActivityModule {
     @PerActivity
     fun dialogComponent(dialogComponent: DialogComponentImpl): DialogComponent =
         dialogComponent
+
+    @Provides
+    @PerActivity
+    fun errorRendererComponent(errorRendererComponent: ErrorRendererComponentImpl): ErrorRendererComponent =
+        errorRendererComponent
 
 }

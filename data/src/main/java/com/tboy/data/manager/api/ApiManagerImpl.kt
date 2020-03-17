@@ -13,18 +13,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
 @Singleton
 class ApiManagerImpl @Inject constructor() : ApiManager {
 
     private var apiService: APIServiceInterface
 
     companion object {
-        const val BASE_URL = "https://api.darksky.net/forecast/b5b8522ebef491c882c795834bfa056d/" // TODO : Key should be encrypted on a final app
+        const val BASE_URL =
+            "https://api.darksky.net/forecast/b5b8522ebef491c882c795834bfa056d/" // TODO : Key should be encrypted on a final app
     }
 
     init {
         val gson: Gson = GsonBuilder().setLenient().create()
-        val rxAdapter: RxJava2CallAdapterFactory = RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
+        val rxAdapter: RxJava2CallAdapterFactory =
+            RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
         val interceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
