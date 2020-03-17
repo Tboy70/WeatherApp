@@ -1,7 +1,7 @@
-package com.tboy.weatherapp
+package com.tboy.weatherapp.activity
 
 import android.os.Bundle
-import com.tboy.weatherapp.activity.BaseActivity
+import com.tboy.weatherapp.R
 
 class MainActivity : BaseActivity() {
 

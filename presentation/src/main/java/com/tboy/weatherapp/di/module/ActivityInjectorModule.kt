@@ -1,6 +1,6 @@
 package com.tboy.weatherapp.di.module
 
-import com.tboy.weatherapp.MainActivity
+import com.tboy.weatherapp.activity.MainActivity
 import com.tboy.weatherapp.di.annotation.PerActivity
 import com.tboy.weatherapp.di.module.activity.MainActivityModule
 import dagger.Module
