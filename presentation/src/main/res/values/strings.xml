@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="nav_main_weather">Main Weather</string>
+    <string name="intro_text">Veuillez rechercher un endroit \n via le bouton ci-dessous</string>
 </resources>

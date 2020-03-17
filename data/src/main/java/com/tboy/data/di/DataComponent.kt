@@ -3,6 +3,8 @@ package com.tboy.data.di
 import android.content.Context
 import com.tboy.data.di.module.DataModule
 import com.tboy.data.di.module.ManagerModule
+import com.tboy.domain.executor.ThreadExecutor
+import com.tboy.domain.repository.WeatherRepository
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,6 +18,11 @@ import javax.inject.Singleton
 )
 
 interface DataComponent {
+
+    //We expose our Repositories to dependent scopes
+    fun weatherRepository(): WeatherRepository
+
+    fun threadExecutor(): ThreadExecutor
 
     @Component.Builder
     abstract class Builder {
