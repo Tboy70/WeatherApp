@@ -6,12 +6,12 @@ data class CurrentWeatherRemoteEntity(
     @SerializedName("time") val time: Int? = null,
     @SerializedName("summary") val summary: String? = null,
     @SerializedName("icon") val icon: String? = null,
-    @SerializedName("precipIntensity") val precipIntensity: Float? = null,
-    @SerializedName("precipProbability") val precipProbability: Float? = null,
-    @SerializedName("temperature") val temperature: Float? = null,
-    @SerializedName("humidity") val humidity: Float? = null,
-    @SerializedName("apparentTemperature") val apparentTemperature: Float? = null,
-    @SerializedName("pressure") val pressure: Float? = null,
-    @SerializedName("windSpeed") val windSpeed: Float? = null,
-    @SerializedName("cloudCover") val cloudCover: Float? = null
+    @SerializedName("precipIntensity") val precipIntensity: Double? = null,
+    @SerializedName("precipProbability") val precipProbability: Double? = null,
+    @SerializedName("temperature") val temperature: Double? = null,
+    @SerializedName("humidity") val humidity: Double? = null,
+    @SerializedName("apparentTemperature") val apparentTemperature: Double? = null,
+    @SerializedName("pressure") val pressure: Double? = null,
+    @SerializedName("windSpeed") val windSpeed: Double? = null,
+    @SerializedName("cloudCover") val cloudCover: Double? = null
 )

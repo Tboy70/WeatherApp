@@ -5,6 +5,27 @@
     <!-- MAIN PAGE -->
     <string name="intro_text">Veuillez rechercher un endroit \n via le bouton ci-dessous</string>
 
+
+    <string name="coordinates_text">(%1$s, %2$s)</string>
+    <string name="current_weather_precipIntensity">Intensité des précipitations : %s</string>
+    <string name="current_weather_precipProbability">Probabilité de précipitations : %s</string>
+    <string name="current_weather_temperature">Température : %s</string>
+    <string name="current_weather_apparentTemperature">Température ressentie : %s</string>
+    <string name="current_weather_humidity">Humidité : %s</string>
+    <string name="current_weather_pressure">Pression : %s</string>
+    <string name="current_weather_windSpeed">Vitesse du vent : %s</string>
+    <string name="current_weather_cloudCover">Couverture nuageuse : %s</string>
+
+    <string name="forecast_weather_temperature_min_max">Temp. min / max : %1$s : %2$s</string>
+    <string name="forecast_weather_apparent_temperature_min_max">Temp. ress. min / max : %1$s / %2$s</string>
+    <string name="forecast_weather_precip_intensity">Intensité des précipitations : %s</string>
+    <string name="forecast_weather_precip_probability">Probabilité de précipitations : %s</string>
+    <string name="forecast_weather_precipType">Type de précipitations : %s</string>
+    <string name="forecast_weather_humidity">Humidité : %s</string>
+    <string name="forecast_weather_pressure">Pression: %s</string>
+    <string name="forecast_weather_wind_speed">Vitesse du vent : %s</string>
+    <string name="forecast_weather_cloud_cover">Couverture nuageuse : %s</string>
+
     <!-- DIALOG -->
     <string name="find_a_place">Rechercher un lieu</string>
     <string name="latitude">Latitude</string>

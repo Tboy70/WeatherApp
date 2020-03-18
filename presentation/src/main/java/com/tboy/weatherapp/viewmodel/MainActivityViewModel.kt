@@ -1,19 +1,19 @@
 package com.tboy.weatherapp.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import com.tboy.domain.interactor.RetrieveWeatherInformation
 import com.tboy.domain.model.WeatherResultEnvelope
-import com.tboy.weatherapp.view.state.MainWeatherViewState
+import com.tboy.weatherapp.view.state.MainActivityViewState
 import com.tboy.weatherapp.viewmodel.base.StateViewModel
-import com.tboy.weatherapp.viewmodel.livedata.SingleLiveEvent
 import javax.inject.Inject
 
-class MainWeatherViewModel @Inject constructor(
+class MainActivityViewModel @Inject constructor(
     private val retrieveWeatherInformation: RetrieveWeatherInformation
-) : StateViewModel<MainWeatherViewState>() {
+) : StateViewModel<MainActivityViewState>() {
 
-    override val currentViewState = MainWeatherViewState()
+    override val currentViewState = MainActivityViewState()
 
-    val retrievedWeatherInformationLiveEvent = SingleLiveEvent<WeatherResultEnvelope>()
+    val retrievedWeatherInformationLiveData = MutableLiveData<WeatherResultEnvelope>()
 
     fun retrieveWeatherInformation(coordinates: List<Double>) {
         viewState.update {
@@ -24,7 +24,7 @@ class MainWeatherViewModel @Inject constructor(
             retrieveWeatherInformation.subscribe(
                 params = RetrieveWeatherInformation.Params.toRetrieve(coordinates),
                 onSuccess = {
-                    retrievedWeatherInformationLiveEvent.postValue(it)
+                    retrievedWeatherInformationLiveData.postValue(it)
                     viewState.update {
                         loading = false
                     }
@@ -38,4 +38,5 @@ class MainWeatherViewModel @Inject constructor(
         )
 
     }
+
 }

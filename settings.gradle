@@ -1,4 +1,4 @@
 rootProject.name='WeatherApp'
-include ':presentation'
+include ':presentation', ':SkyconsLibrary'
 include ':data'
 include ':domain'

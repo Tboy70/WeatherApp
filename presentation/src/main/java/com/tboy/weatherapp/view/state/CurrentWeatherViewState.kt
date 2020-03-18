@@ -1,5 +1,5 @@
 package com.tboy.weatherapp.view.state
 
-data class MainWeatherViewState(
+data class CurrentWeatherViewState(
     var loading: Boolean = false
 )

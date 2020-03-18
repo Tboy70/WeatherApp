@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="@dimen/margin_16"
+    android:paddingBottom="@dimen/margin_16">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/forecast_weather_item_main_info_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/forecast_weather_item_details_info_layout"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/forecast_weather_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Weather summary" />
+
+        <TextView
+            android:id="@+id/forecast_weather_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_summary"
+            tools:text="18/03/2020 23:00:00" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/current_weather_icon_layout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_time" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/forecast_weather_item_details_info_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@id/forecast_weather_item_main_info_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/forecast_weather_temperature_min_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/forecast_weather_temperature_min_max" />
+
+        <TextView
+            android:id="@+id/forecast_weather_apparent_temperature_min_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_temperature_min_max"
+            tools:text="@string/forecast_weather_apparent_temperature_min_max" />
+
+        <TextView
+            android:id="@+id/forecast_weather_precip_intensity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_apparent_temperature_min_max"
+            tools:text="@string/forecast_weather_precip_intensity" />
+
+        <TextView
+            android:id="@+id/forecast_weather_precip_probability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_precip_intensity"
+            tools:text="@string/forecast_weather_precip_probability" />
+
+        <TextView
+            android:id="@+id/forecast_weather_precipType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_precip_probability"
+            tools:text="@string/forecast_weather_precipType" />
+
+        <TextView
+            android:id="@+id/forecast_weather_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_precipType"
+            tools:text="@string/forecast_weather_humidity" />
+
+        <TextView
+            android:id="@+id/forecast_weather_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_humidity"
+            tools:text="@string/forecast_weather_pressure" />
+
+        <TextView
+            android:id="@+id/forecast_weather_wind_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_pressure"
+            tools:text="@string/forecast_weather_wind_speed" />
+
+        <TextView
+            android:id="@+id/forecast_weather_cloud_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_weather_wind_speed"
+            tools:text="@string/forecast_weather_cloud_cover" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

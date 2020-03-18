@@ -4,7 +4,8 @@ import com.tboy.weatherapp.activity.MainActivity
 import com.tboy.weatherapp.activity.BaseActivity
 import com.tboy.weatherapp.di.annotation.PerActivity
 import com.tboy.weatherapp.di.annotation.PerFragment
-import com.tboy.weatherapp.fragment.MainWeatherFragment
+import com.tboy.weatherapp.fragment.CurrentWeatherFragment
+import com.tboy.weatherapp.fragment.ForecastWeatherFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -18,5 +19,9 @@ abstract class MainActivityModule {
 
     @PerFragment
     @ContributesAndroidInjector
-    abstract fun mainWeatherFragmentInjector(): MainWeatherFragment
+    abstract fun currentWeatherFragmentInjector(): CurrentWeatherFragment
+
+    @PerFragment
+    @ContributesAndroidInjector
+    abstract fun forecastWeatherFragmentInjector(): ForecastWeatherFragment
 }

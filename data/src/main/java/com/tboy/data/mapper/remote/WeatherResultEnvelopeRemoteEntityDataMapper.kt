@@ -16,6 +16,7 @@ class WeatherResultEnvelopeRemoteEntityDataMapper @Inject constructor(
     fun transformToEntity(weatherResultEnvelopeRemoteEntity: WeatherResultEnvelopeRemoteEntity): WeatherResultEnvelopeEntity {
         try {
             return WeatherResultEnvelopeEntity(
+                timezone = weatherResultEnvelopeRemoteEntity.timezone,
                 latitude = weatherResultEnvelopeRemoteEntity.latitude,
                 longitude = weatherResultEnvelopeRemoteEntity.longitude,
                 currentWeather = weatherResultEnvelopeRemoteEntity.currentWeather?.let {
@@ -47,6 +48,7 @@ class WeatherResultEnvelopeRemoteEntityDataMapper @Inject constructor(
     fun transformFromEntity(weatherResultEnvelopeEntity: WeatherResultEnvelopeEntity): WeatherResultEnvelopeRemoteEntity {
         try {
             return WeatherResultEnvelopeRemoteEntity(
+                timezone = weatherResultEnvelopeEntity.timezone,
                 latitude = weatherResultEnvelopeEntity.latitude,
                 longitude = weatherResultEnvelopeEntity.longitude,
                 currentWeather = weatherResultEnvelopeEntity.currentWeather?.let {

@@ -4,18 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/margin_16"
     tools:context=".activity.MainActivity">
 
-    <fragment
-        android:id="@+id/main_nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintTop_toTopOf="parent"
+    <ProgressBar
+        android:id="@+id/activity_main_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:navGraph="@navigation/main_nav_graph" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/activity_main_intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/intro_text"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_main_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/activity_main_viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_powered_by"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/activity_main_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="center"
+            app:tabMaxWidth="100dp"
+            app:tabMinWidth="100dp"
+            app:tabMode="scrollable">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/activity_main_tab_current"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:text="Current" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/activity_main_tab_forecast"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:text="Forecast" />
+        </com.google.android.material.tabs.TabLayout>
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <TextView
+        android:id="@+id/activity_main_powered_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powered by Dark Sky"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,11 +33,14 @@ dependencies {
 
     implementation project(path: ':data')
     implementation project(path: ':domain')
+    implementation project(':SkyconsLibrary')
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.afollestad.material-dialogs:core:2.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
