@@ -1,8 +1,8 @@
 package com.tboy.data.repository
 
 import com.tboy.data.business.APIBusinessHelper
-import com.tboy.data.mapper.WeatherResultEnvelopeEntityDataMapper
-import com.tboy.domain.model.WeatherResultEnvelope
+import com.tboy.data.mapper.WeatherResultEntityDataMapper
+import com.tboy.domain.model.WeatherResult
 import com.tboy.domain.repository.WeatherRepository
 import io.reactivex.Single
 import javax.inject.Inject
@@ -11,13 +11,16 @@ import javax.inject.Singleton
 @Singleton
 class WeatherRepositoryImpl @Inject constructor(
     private val apiBusinessHelper: APIBusinessHelper,
-    private val weatherResultEnvelopeEntityDataMapper: WeatherResultEnvelopeEntityDataMapper
+    private val weatherResultEntityDataMapper: WeatherResultEntityDataMapper
 ) : WeatherRepository {
 
-    override fun retrieveWeatherInformation(coordinates: List<Double>): Single<WeatherResultEnvelope> {
+    override fun retrieveWeatherInformation(
+        coordinates: List<Double>,
+        refreshData: Boolean
+    ): Single<WeatherResult> {
         return Single.defer {
-            apiBusinessHelper.retrieveWeatherInformation(coordinates).map {
-                weatherResultEnvelopeEntityDataMapper.transformFromEntity(it)
+            apiBusinessHelper.retrieveWeatherInformation(coordinates, refreshData).map {
+                weatherResultEntityDataMapper.transformFromEntity(it)
             }
         }
     }

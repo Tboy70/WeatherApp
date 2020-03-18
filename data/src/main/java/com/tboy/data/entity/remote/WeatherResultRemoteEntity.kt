@@ -2,10 +2,10 @@ package com.tboy.data.entity.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherResultEnvelopeRemoteEntity(
-    @SerializedName("timezone") var timezone: String? = null,
-    @SerializedName("latitude") var latitude: Float? = null,
-    @SerializedName("longitude") var longitude: Float? = null,
+data class WeatherResultRemoteEntity(
+    @SerializedName("timezone") var timezone: String,
+    @SerializedName("latitude") var latitude: Double,
+    @SerializedName("longitude") var longitude: Double,
     @SerializedName("currently") var currentWeather: CurrentWeatherRemoteEntity? = null,
     @SerializedName("daily") var forecastWeather: ForecastWeatherRemoteEntity? = null
 )

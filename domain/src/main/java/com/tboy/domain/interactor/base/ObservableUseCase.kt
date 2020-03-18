@@ -9,7 +9,11 @@ import io.reactivex.schedulers.Schedulers
  */
 abstract class ObservableUseCase<T> : UseCase() {
 
-    fun subscribe(onError: ((Throwable) -> Unit), onComplete: (() -> Unit), onNext: ((T) -> Unit)): Disposable {
+    fun subscribe(
+        onError: ((Throwable) -> Unit),
+        onComplete: (() -> Unit),
+        onNext: ((T) -> Unit)
+    ): Disposable {
         return build()
             .subscribeOn(Schedulers.from(threadExecutor))
             .subscribe(onNext, onError, onComplete)

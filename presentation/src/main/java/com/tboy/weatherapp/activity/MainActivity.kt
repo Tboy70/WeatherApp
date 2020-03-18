@@ -3,7 +3,6 @@ package com.tboy.weatherapp.activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.tboy.weatherapp.R
 import com.tboy.weatherapp.component.listener.DialogComponent
@@ -37,7 +36,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainActivityViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainActivityViewModel::class.java)
+        mainActivityViewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(MainActivityViewModel::class.java)
 
         initViews()
         initViewPager()
@@ -68,7 +68,6 @@ class MainActivity : BaseActivity() {
 
     private fun initiateViewModelObservers() {
         mainActivityViewModel.retrievedWeatherInformationLiveData.observeSafe(this) {
-            Log.e("TEST", "TEST")
             activity_main_viewpager.show()
             activity_main_intro_text.gone()
         }

@@ -55,7 +55,7 @@ class CurrentWeatherFragment : BaseFragment<CurrentWeatherViewModel>() {
                 }
 
                 current_weather_time.text = currentWeather.time?.let { DateUtils.getDate(it) }
-                    current_weather_summary.text = currentWeather.summary
+                current_weather_summary.text = currentWeather.summary
                 current_weather_precipIntensity.text =
                     getString(R.string.current_weather_precipIntensity).format(currentWeather.precipIntensity)
                 current_weather_precipProbability.text =

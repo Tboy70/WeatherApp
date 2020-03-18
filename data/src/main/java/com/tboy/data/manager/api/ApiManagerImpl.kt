@@ -2,7 +2,7 @@ package com.tboy.data.manager.api
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.tboy.data.entity.remote.WeatherResultEnvelopeRemoteEntity
+import com.tboy.data.entity.remote.WeatherResultRemoteEntity
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -41,7 +41,7 @@ class ApiManagerImpl @Inject constructor() : ApiManager {
         apiService = retrofit.create(APIServiceInterface::class.java)
     }
 
-    override fun retrieveWeatherInformation(coordinates: List<Double>): Single<WeatherResultEnvelopeRemoteEntity> {
+    override fun retrieveWeatherInformation(coordinates: List<Double>): Single<WeatherResultRemoteEntity> {
         return apiService.retrieveWeatherInformation(coordinates[0], coordinates[1])
     }
 }

@@ -3,6 +3,7 @@ package com.tboy.data.di
 import android.content.Context
 import com.tboy.data.di.module.DataModule
 import com.tboy.data.di.module.ManagerModule
+import com.tboy.data.di.module.PersistenceModule
 import com.tboy.domain.executor.ThreadExecutor
 import com.tboy.domain.repository.WeatherRepository
 import dagger.BindsInstance
@@ -13,7 +14,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         DataModule::class,
-        ManagerModule::class
+        ManagerModule::class,
+        PersistenceModule::class
     ]
 )
 

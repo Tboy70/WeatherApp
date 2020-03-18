@@ -3,7 +3,6 @@ package com.tboy.weatherapp.utils
 import android.content.Context
 import android.graphics.Color
 import android.view.View
-import androidx.fragment.app.FragmentActivity
 import com.thbs.skycons.library.*
 
 const val CLEAR_DAY = "clear-day"

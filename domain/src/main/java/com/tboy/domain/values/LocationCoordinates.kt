@@ -5,7 +5,7 @@ const val PARIS = "Paris"
 const val BORDEAUX = "Bordeaux"
 const val LILLE = "Lille"
 
-object LocationCoordonates {
+object LocationCoordinates {
     private val LYON_LOCATION = Pair(LYON, listOf(45.764042, 4.835659))
     private val PARIS_LOCATION = Pair(PARIS, listOf(48.856613, 2.352222))
     private val BORDEAUX_LOCATION = Pair(BORDEAUX, listOf(44.837788, -0.579180))

@@ -2,7 +2,7 @@ package com.tboy.data.entity.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class DailyWeatherRemoteEntity (
+data class DailyWeatherRemoteEntity(
     @SerializedName("time") val time: Int? = null,
     @SerializedName("summary") val summary: String? = null,
     @SerializedName("icon") val icon: String? = null,

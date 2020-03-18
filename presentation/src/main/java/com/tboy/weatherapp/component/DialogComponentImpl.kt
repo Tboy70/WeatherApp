@@ -6,7 +6,7 @@ import android.widget.TextView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
-import com.tboy.domain.values.LocationCoordonates
+import com.tboy.domain.values.LocationCoordinates
 import com.tboy.weatherapp.R
 import com.tboy.weatherapp.activity.BaseActivity
 import com.tboy.weatherapp.component.listener.DialogComponent
@@ -62,7 +62,7 @@ class DialogComponentImpl @Inject constructor(
                     )
                 } else {
                     onPositive(
-                        LocationCoordonates.allList.find {
+                        LocationCoordinates.allList.find {
                             it.first == getCustomView().findViewById<Spinner>(R.id.view_location_selection_spinner).selectedItem
                         }?.second ?: emptyList()
                     )

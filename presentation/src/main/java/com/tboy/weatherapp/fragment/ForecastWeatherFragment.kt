@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tboy.weatherapp.R
 import com.tboy.weatherapp.extension.observeSafe
 import com.tboy.weatherapp.ui.adapter.DailyWeatherListAdapter
-import com.tboy.weatherapp.utils.DateUtils
 import com.tboy.weatherapp.utils.IconGeneratorUtils
 import com.tboy.weatherapp.viewmodel.ForecastWeatherViewModel
 import com.tboy.weatherapp.viewmodel.MainActivityViewModel
@@ -47,7 +46,10 @@ class ForecastWeatherFragment : BaseFragment<ForecastWeatherViewModel>() {
             )
         )
         forecast_weather_list_swipe_refresh_layout.setOnRefreshListener {
-            // TODO
+            mainWeatherViewModel.retrieveWeatherInformation(
+                mainWeatherViewModel.getLastSearchedAndRetrievedCoordinates(),
+                true
+            )
         }
         forecast_weather_list_swipe_refresh_layout.setColorSchemeResources(R.color.colorPrimary)
     }
@@ -58,10 +60,11 @@ class ForecastWeatherFragment : BaseFragment<ForecastWeatherViewModel>() {
             resetIcon()
 
             forecast_weather_timezone.text = it.timezone
-            forecast_weather_coordinates.text = getString(R.string.coordinates_text).format(it.latitude, it.longitude)
+            forecast_weather_coordinates.text =
+                getString(R.string.coordinates_text).format(it.latitude, it.longitude)
             forecast_weather_summary.text = it.forecastWeather?.generalSummary
 
-            activity?.let {context ->
+            activity?.let { context ->
                 forecast_weather_icon_layout.addView(
                     IconGeneratorUtils.generateWeatherIcon(context, it.forecastWeather?.generalIcon)
                 )
@@ -70,6 +73,10 @@ class ForecastWeatherFragment : BaseFragment<ForecastWeatherViewModel>() {
             it.forecastWeather?.let {
                 dailyWeatherListAdapter.updateItemList(it.data)
             }
+        }
+
+        mainWeatherViewModel.viewState.observeSafe(this) {
+            forecast_weather_list_swipe_refresh_layout.isRefreshing = it.loading
         }
     }
 
